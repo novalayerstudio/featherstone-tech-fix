@@ -4,7 +4,7 @@ import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative bg-gradient-subtle py-20 overflow-hidden">
+    <section id="hero" className="relative bg-gradient-subtle py-20 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
@@ -18,10 +18,24 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <Button variant="hero" size="lg">
+              <Button 
+                variant="hero" 
+                size="lg"
+                onClick={() => {
+                  const element = document.getElementById('contact');
+                  if (element) element.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 Get Quote Today
               </Button>
-              <Button variant="outline" size="lg">
+              <Button 
+                variant="outline" 
+                size="lg"
+                onClick={() => {
+                  const element = document.getElementById('services');
+                  if (element) element.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 View Services
               </Button>
             </div>

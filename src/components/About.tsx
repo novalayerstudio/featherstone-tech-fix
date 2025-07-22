@@ -26,7 +26,7 @@ const About = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-subtle">
+    <section id="about" className="py-20 bg-gradient-subtle">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
