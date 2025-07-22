@@ -17,10 +17,10 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="relative">
+            {/* <div className="relative">
               <Smartphone className="w-8 h-8 text-primary" />
               <Wrench className="w-4 h-4 absolute -bottom-1 -right-1 text-accent" />
-            </div>
+            </div> */}
             <span className="text-2xl font-bold text-primary">Repairtex</span>
           </div>
 
