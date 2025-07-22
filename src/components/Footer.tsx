@@ -1,5 +1,5 @@
 import { MapPin, Clock, Mail, Phone } from "lucide-react";
-
+import logo from "@/assets/logo.png";
 const Footer = () => {
   return (
     <footer className="bg-secondary/30 border-t border-border py-12">
@@ -7,9 +7,6 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <Phone className="w-4 h-4 text-primary-foreground" />
-              </div>
               <h3 className="text-xl font-bold text-primary">Repairtex</h3>
             </div>
             <p className="text-muted-foreground">
@@ -52,7 +49,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
-          <p>&copy; 2024 Repairtex. All rights reserved.</p>
+          <p>&copy; 2025 Repairtex. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Phone, Laptop, Tablet, Headphones } from "lucide-react";
 import phoneRepairImage from "@/assets/phone-repair.jpg";
+import products from "@/assets/products.jpg"
 import laptopRepairImage from "@/assets/laptop-repair.jpg";
 import tabletRepairImage from "@/assets/tablet-repair.jpg";
 
@@ -29,9 +30,9 @@ const services = [
   },
   {
     icon: Headphones,
-    title: "Accessories & Sales",
+    title: "Products",
     description: "Quality accessories and certified second-hand devices. Cases, chargers, cables, and more.",
-    image: phoneRepairImage, // Reusing image
+    image: products, 
     features: ["Phone Cases", "Chargers", "Second-hand Devices", "Quality Tested"]
   }
 ];
@@ -80,9 +81,6 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <Button variant="cta" className="w-full">
-                  Learn More
-                </Button>
               </CardContent>
             </Card>
           ))}
