@@ -100,6 +100,20 @@ const Contact = () => {
                 </a>
               </CardContent>
             </Card>
+
+            <Card className="shadow-card">
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2">
+                  <Phone className="w-5 h-5 text-primary" />
+                  <span>Call Us</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">0800 001 6935</span>
+                </div>
+              </CardContent>
+            </Card>
           </div>
           
           {/* Contact Form */}

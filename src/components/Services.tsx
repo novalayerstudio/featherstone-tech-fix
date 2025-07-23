@@ -30,7 +30,7 @@ const services = [
   },
   {
     icon: Headphones,
-    title: "Products",
+    title: "Accessories & Sales",
     description: "Quality accessories and certified second-hand devices. Cases, chargers, cables, and more.",
     image: products, 
     features: ["Phone Cases", "Chargers", "Second-hand Devices", "Quality Tested"]

@@ -35,6 +35,10 @@ const Footer = () => {
                 <Mail className="w-4 h-4" />
                 <span className="text-sm">Sales@repairtex.co.uk</span>
               </div>
+              <div className="flex items-center space-x-2">
+                <Phone className="w-4 h-4" />
+                <span className="text-sm">0800 001 6935</span>
+              </div>
             </div>
           </div>
           
