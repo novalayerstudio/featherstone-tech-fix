@@ -1,3 +1,5 @@
+// Install: npm install @emailjs/browser
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { MapPin, Clock, Mail, Phone } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,12 +18,44 @@ const Contact = () => {
     device: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const EMAIL_CONFIG = {
+    serviceId: 'service_0o1t618',  
+    templateId: 'template_t4wtpx3',   
+    publicKey: '0RtnqnYRaJZB5W5qg'
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send the data to a server
-    toast.success("Message sent! We'll get back to you soon.");
-    setFormData({ name: "", email: "", phone: "", device: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || 'Not provided',
+        device: formData.device,
+        message: formData.message,
+        time: new Date().toLocaleDateString(),
+      };
+
+      await emailjs.send(
+        EMAIL_CONFIG.serviceId,
+        EMAIL_CONFIG.templateId,
+        templateParams,
+        EMAIL_CONFIG.publicKey
+      );
+
+      toast.success("Message sent successfully! We'll get back to you soon.");
+      setFormData({ name: "", email: "", phone: "", device: "", message: "" });
+    } catch (error) {
+      console.error('Email send failed:', error);
+      toast.error("Failed to send message. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -176,10 +211,10 @@ const Contact = () => {
                         className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                       >
                         <option value="">Select device type</option>
-                        <option value="smartphone">Smartphone</option>
-                        <option value="laptop">Laptop</option>
-                        <option value="tablet">Tablet</option>
-                        <option value="other">Other</option>
+                        <option value="Smartphone">Smartphone</option>
+                        <option value="Laptop">Laptop</option>
+                        <option value="Tablet">Tablet</option>
+                        <option value="Other">Other</option>
                       </select>
                     </div>
                   </div>
@@ -197,8 +232,14 @@ const Contact = () => {
                     />
                   </div>
                   
-                  <Button type="submit" variant="cta" size="lg" className="w-full">
-                    Send Message
+                  <Button 
+                    type="submit" 
+                    variant="cta" 
+                    size="lg" 
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </CardContent>
